@@ -1,24 +1,25 @@
-import requests
+import subprocess
 import csv
 from concurrent.futures import ThreadPoolExecutor
+import json
 
 def query_ollama(prompt, model="qwen2.5:0.5b"):
-    url = "http://192.168.154.147:11434/api/generate"
-    payload = {
-        "model": model,
-        "prompt": prompt,
-        "stream": False  # Change to True for streaming responses
-    }
-
+    url = "http://192.168.154.155:11434/api/generate"
+    payload = "{\"model\":\""+model+"\",\"prompt\":\""+prompt+"\",\"stream\": false}"
     try:
-        response = requests.post(url, json=payload)
-        response.raise_for_status()
-        data = response.json()
+        result = subprocess.run(
+            ["curl", "-X", "POST", url, "-H", "Content-Type: application/json", "-d", payload],
+            capture_output=True,
+            text=True
+        )
+        if result.returncode != 0:
+            return f"Error: {result.stderr.strip()}"
+        data = json.loads(result.stdout)
         return data.get("response", "No response received.")
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
         return f"Error: {e}"
 
-def process_csv(file_path, model="default", max_workers=5):
+def process_csv(file_path, model="qwen2.5:0.5b", max_workers=4):
     results = []
     with open(file_path, newline='') as csvfile:
         reader = csv.reader(csvfile)
@@ -31,7 +32,6 @@ def process_csv(file_path, model="default", max_workers=5):
         print(f"Prompt: {prompt}\nResponse: {response}\n")
 
 if __name__ == "__main__":
-    model_name = "default"
-    csv_file = "prompts.csv"
-    max_workers = 4
-    process_csv(csv_file, model=model_name, max_workers=max_workers)
+    csv_file = "sample_prompts.csv"
+    max_workers = 10
+    process_csv(csv_file, max_workers=max_workers)
