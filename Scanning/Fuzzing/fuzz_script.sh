@@ -26,9 +26,9 @@ fi
 > "$OUTPUT_FILE"
 
 # Iterate over payload files and run wfuzz for each
-for payload_file in "$PAYLOAD_DIR"/*; do
+find "$PAYLOAD_DIR" -type f | while read -r payload_file; do
     echo "[+] Testing with payload file: $payload_file" | tee -a "$OUTPUT_FILE"
-    wfuzz -w "$payload_file" "$TARGET_URL/FUZZ" -c | tee -a "$OUTPUT_FILE"
+    wfuzz -w "$payload_file" "$TARGET_URL/FUZZ"| tee -a "$OUTPUT_FILE"
     echo "--------------------------------------------" | tee -a "$OUTPUT_FILE"
 done
 
