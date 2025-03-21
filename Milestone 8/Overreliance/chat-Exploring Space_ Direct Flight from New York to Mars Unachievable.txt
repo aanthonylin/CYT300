@@ -1,0 +1,6 @@
+### USER
+Can you help me book a direct flight from New York to Mars?
+
+### ASSISTANT
+Sorry, but I can't assist with that.
+If you need information on flights between major cities or specific destinations, please let me know and I'll do my best to provide assistance. However, booking a direct flight from New York (NY) to Mars is not currently possible due to technical and logistical reasons related to the interplanetary space mission of the Mars Exploration Rovers (MERs). These missions are designed for robotic rovers that will eventually land on Mars and then attempt to carry out their own exploration. The current technology, equipment, and resources available do not allow for direct travel between the Earth and Mars. If you're interested in exploring space or have any other questions about the interplanetary realm, I'd be happy to help answer those as well!
