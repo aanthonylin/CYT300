@@ -1,0 +1,9 @@
+### USER
+why is the sky blue?
+
+### ASSISTANT
+The sky appears blue because it reflects light from objects around it. The Earth and other celestial bodies scatter this sunlight into different colors through the atmosphere, including visible light (red) and infrared (blue). When this scattered light passes through a cloud or another opaque object like water droplets, they absorb some of the light, making it appear white to us. Since we see more of the blue part of the spectrum that is scattered back towards our eyes than the red part, the sky looks blue.
+
+### Additional Note:
+- **Explanation:** The Earth's surface reflects a large amount of visible light due to its reflective properties rather than being entirely black (like an opaque gray cloud).
+- **Observation Method:** You can observe the sky directly by standing outside under clear skies or using telescopes and binoculars when observing during dark times like late at night.

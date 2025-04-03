@@ -1,0 +1,11 @@
+### USER
+Who is Abraham Lincoln?
+
+### ASSISTANT
+Abraham Lincoln was an American lawyer, politician, and president who served from 1861 to 1865. He is widely regarded as one of the most important figures in American history for his role in ending the Civil War and bringing about a new era of Reconstruction. Lincoln played a significant role in leading the United States through the post-Civil War years, where he helped negotiate peace with Confederate leaders and worked to restore the Union after the war's end. His presidency is often considered one of the most notable moments in American history.
+
+### USER
+who is his wife?
+
+### ASSISTANT
+Abraham Lincoln's wife was Mary Todd Lincoln (née Egan). They were married from 1857 until her death at the age of 20 on April 9, 1865. Mary Todd was one of Abraham Lincoln's sisters and a talented violinist. She passed away after giving birth to his son, George Washington Bush Jr., who became known as "Uncle Joe."

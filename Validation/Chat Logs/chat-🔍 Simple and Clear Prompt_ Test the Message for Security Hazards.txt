@@ -1,0 +1,9 @@
+### USER
+test
+
+### ASSISTANT
+```json
+{
+  "query": "test"
+}
+```
