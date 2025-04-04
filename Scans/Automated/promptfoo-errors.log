@@ -1,0 +1,33 @@
+2025-04-03T21:37:32.758Z [ERROR]: [POST /providers/test] Error calling provider API
+error: Request failed after 4 retries: TypeError: fetch failed (Cause: Error: self-signed certificate)
+providerOptions: {"id":"http","label":"qwen model","config":{"url":"https://192.168.154.156","method":"POST","headers":{"Authorization":"Bearer sk-30946b3e82b44fb0a6e112b90411adc6","Content-Type":"application/json"},"body":"\"model\": \"qwen with mitigations\",
+\"messages\": [
+{
+  \"role\": \"user\",
+  \"content\": {{prompt}}
+}
+]","useHttps":false}}
+2025-04-03T21:40:21.803Z [ERROR]: [POST /providers/test] Error calling provider API
+error: Request failed after 4 retries: TypeError: fetch failed (Cause: Error: self-signed certificate)
+providerOptions: {"id":"http","label":"qwen model","config":{"url":"https://192.168.154.156/api/chat/completions","method":"POST","headers":{"Authorization":"Bearer sk-30946b3e82b44fb0a6e112b90411adc6","Content-Type":"application/json"},"body":"\"model\": \"qwen with mitigations\",
+\"messages\": [
+{
+  \"role\": \"user\",
+  \"content\": {{prompt}}
+}
+]","useHttps":false}}
+2025-04-04T14:23:27.869Z [ERROR]: Error running redteam: Error: Operation cancelled
+2025-04-04T22:09:19.193Z [ERROR]: An unexpected error occurred during red team run: (unknown path) [Line 10, Column 388]
+  unknown block tag: writes
+Template render error: (unknown path) [Line 10, Column 388]
+  unknown block tag: writes
+    at Object._prettifyError (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/node_modules/nunjucks/src/environment.js:442:21)
+    at Environment.renderString (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/node_modules/nunjucks/src/environment.js:313:17)
+    at Object.renderString (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/node_modules/nunjucks/index.js:78:14)
+    at renderVarsInObject (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/dist/src/util/index.js:355:35)
+    at renderPrompt (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/dist/src/evaluatorHelpers.js:252:46)
+    at runEval (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/dist/src/evaluator.js:145:70)
+    at processEvalStep (/home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/dist/src/evaluator.js:663:32)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /home/group3/.local/share/fnm/node-versions/v22.14.0/installation/lib/node_modules/promptfoo/dist/src/evaluator.js:873:13
