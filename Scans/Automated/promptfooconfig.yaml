@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
-description: My Red Team Configuration
+description: API_Scanning
 targets:
   - id: http
     config:
@@ -18,42 +18,31 @@ targets:
 prompts:
   - '{{prompt}}'
 redteam:
-  purpose: ''
+  purpose: |-
+    The objective of the application is: You are a chatbot. You respond to user's input by providing useful responses.
+
+    You are: You are a user of a chatbot
+  entities:
+    - '{{prompt}}'
   plugins:
-    - id: harmful  # Tests handling of malicious content across multiple categories
-    - id: pii:api-db  # Tests for PII exposure via API/database access
-    - id: pii:direct  # Tests for direct PII exposure vulnerabilities
-    - id: pii:session  # Tests for PII exposure in session data
-    - id: pii:social  # Tests for PII exposure via social engineering
-    - id: cross-session-leak  # Tests for information leakage between user sessions
-    - id: harmful:hate  # Tests handling of hate speech and discriminatory content
-    - id: harmful:radicalization  # Tests handling of extremist content and recruitment
-    - id: harmful:specialized-advice  # Tests handling of unauthorized professional advice
-    - id: shell-injection  # Tests for command injection vulnerabilities
-    - id: excessive-agency  # Tests for unauthorized actions beyond defined system boundaries
+    - id: bola  # Tests for broken object-level authorization vulnerabilities (OWASP API 1)
     - id: rbac  # Tests role-based access control implementation
     - id: bfla  # Tests for broken function-level authorization vulnerabilities (OWASP API 5)
-    - id: bola  # Tests for broken object-level authorization vulnerabilities (OWASP API 1)
-    - id: hallucination  # Tests for fabrication of false or misleading information
+    - id: excessive-agency  # Tests for unauthorized actions beyond defined system boundaries
     - id: overreliance  # Tests for overreliance on system assumptions
-    - id: reasoning-dos  # Tests for vulnerabilities to computational resource exhaustion through excessive reasoning patterns
-    - id: harmful:illegal-drugs:meth  # Tests handling of methamphetamine-related content
-    - id: harmful:copyright-violations  # Tests handling of intellectual property violations
-    - id: harmful:illegal-activities  # Tests handling of general illegal activities
-    - id: harmful:indiscriminate-weapons  # Tests handling of weapons-related content
-    - id: harmful:sex-crime  # Tests handling of sexual crime content
-    - id: harmful:violent-crime  # Tests handling of violent crime content
-    - id: harmful:unsafe-practices  # Tests handling of dangerous activity instructions
-    - id: harmful:cybercrime  # Tests handling of cybercrime-related content
-    - id: harmful:illegal-drugs  # Tests handling of illegal drug-related content
-    - id: harmful:non-violent-crime  # Tests handling of non-violent criminal content
-    - id: unsafebench  # Tests handling of unsafe image content from the UnsafeBench dataset
-    - id: pliny  # Tests handling of Pliny prompt injections
-    - id: harmful:chemical-biological-weapons  # Tests handling of WMD-related content
-    - id: harmful:weapons:ied  # Tests handling of Improvised Explosive Devices
+    - id: harmful:privacy  # Tests handling of privacy violation attempts
+    - id: pii:api-db  # Tests for PII exposure via API/database access
+    - id: pii:session  # Tests for PII exposure in session data
+    - id: harmful:misinformation-disinformation  # Tests handling of false information campaigns
+    - id: shell-injection  # Tests for command injection vulnerabilities
+    - id: sql-injection  # Tests for SQL injection vulnerabilities
+    - id: harmful:specialized-advice  # Tests handling of unauthorized professional advice
+    - id: debug-access  # Tests for exposed debugging interfaces and commands
   strategies:
+    - id: basic  # Original plugin tests without any additional strategies or optimizations
     - id: jailbreak  # Single-shot optimization of safety bypass techniques
-    - id: prompt-injection  # Tests for direct prompt injection vulnerabilities
+    - id: jailbreak:composite  # Combines multiple jailbreak techniques for enhanced effectiveness
+    - id: jailbreak:likert  # Uses Likert scale-based prompts to bypass content filters
 defaultTest:
   options:
     transformVars: '{ ...vars, sessionId: context.uuid }'
